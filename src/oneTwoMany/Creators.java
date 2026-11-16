@@ -1,10 +1,13 @@
 package oneTwoMany;
+import java.io.Serializable;
+import java.util.ArrayList;
+public class Creators implements Serializable {
 
-public class Creators {
+	private String creatorId;
+	private String name;
+	private int Subscribers;
+	
 
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
-	}
+	
 
 }
