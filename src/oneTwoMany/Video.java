@@ -27,6 +27,6 @@ public class Video implements Serializable{
 	
 	@Override
 	public String toString() {
-		return videoTitle + " By " + creator + " ( " + videoId + " " + views +" )";
+		return "'" +videoTitle + "' By " + creator + " ( " + videoId + ", " + views +" views )";
 	}
 }
