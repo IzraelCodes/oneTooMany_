@@ -7,6 +7,9 @@ public class Video implements Serializable{
 	private Creators creator;
 	
 	public Video(int videoId, String videoTitle, int views, Creators creator) {
-		
+		this.videoId = videoId;
+		this.videoTitle = videoTitle;
+		this.views = views;
+		this.creator = creator;
 	}
 }
