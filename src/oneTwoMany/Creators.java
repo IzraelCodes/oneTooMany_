@@ -34,7 +34,9 @@ public class Creators implements Serializable {
 	
 	@Override
 	public String toString() {
-		return "Whatever format i want here ill do it later iwl";
+		return "Creator ID: " + creatorId +
+				"\nCreator name: " + name +
+				"\n Videos: " + videos.size();
 	}
 
 	
