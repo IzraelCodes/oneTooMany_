@@ -12,4 +12,18 @@ public class Video implements Serializable{
 		this.views = views;
 		this.creator = creator;
 	}
+	public int getVideoId() {
+		return videoId;
+	}
+	public String getVideoTitle() {
+		return videoTitle;
+	}
+	public int getViews() {
+		return views;
+	}
+	public Creators getCreator() {
+		return creator;
+	}
+	
+	
 }
