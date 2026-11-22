@@ -1,6 +1,8 @@
 package oneTwoMany;
 import java.io.*;
 import java.util.ArrayList;
+
+import javax.swing.JFrame;
 public class CreatorsManagerGUI extends JFrame implements ActionListener{
 	
 	private JList<Creators> creatorListDisplay;
@@ -16,5 +18,17 @@ public class CreatorsManagerGUI extends JFrame implements ActionListener{
 	private JButton addCreatorButton;
 	private JButton addVideoButton;
 	
+	private JLabel createrCountLabel;
+	private JLabel videoCountLabel;
 	private JLabel statusLabel;
+	
+	private ArrayList<Creators> creatorList;
+	
+	public CreatorsManagerGUI() {
+		super("CreatorHub - Youtube Manager");		
+		
+		setSize(900, 600);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setLayout(new BorderLayout());
+	}
 }
