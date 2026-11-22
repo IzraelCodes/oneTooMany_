@@ -1,6 +1,7 @@
 package oneTwoMany;
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Font;
 import java.awt.GridLayout;
 import java.io.*;
 import java.util.ArrayList;
@@ -24,7 +25,7 @@ public class CreatorsManagerGUI extends JFrame implements ActionListener{
 	private JButton addCreatorButton;
 	private JButton addVideoButton;
 	
-	private JLabel createrCountLabel;
+	private JLabel creatorCountLabel;
 	private JLabel videoCountLabel;
 	private JLabel statusLabel;
 	
@@ -88,5 +89,73 @@ public class CreatorsManagerGUI extends JFrame implements ActionListener{
 		
 		titleLabel.setFont(new Font("Arial", Font.BOLD, 28));
 		titleLabel.setForeground(Color.white);
+		
+		JLabel subtitleLabel = new JLabel(
+				"YOUTUBE CREATOR MANAGMENT");
+		
+		subtitleLabel.setFont(new Font("Arial", Font.PLAIN , 11));
+		subtitleLabel.setForeground(new Color(32, 43, 60));
+		
+		JPanel textPanel = new JPanel(new GridLayout(2, 1));
+		textPanel.setBackground(new Color(32, 43, 60));
+		
+		textPanel.add(titleLabel);
+		textPanel.add(subtitleLabel);
+		
+		return panel;
+		
+		
 	}
+	
+	// creation of the STATS sections
+	
+	private JPanel createStats() {
+		
+		JPanel panel = new JPanel(new GridLayout(1,2,15,0));
+		
+		panel.setBackground(new Color(240,243,248));
+		panel.setBorder(BorderFactory.createEmptyBorder(15,15,5,15));
+		
+		creatorCountLabel = new JLabel("0");
+		videoCountLabel = new JLabel("0");
+		
+		JPanel creatorCard = createStatCard(
+				"TOTAL CREATORS", creatorCountLabel);
+		
+		JPanel videoCard = createStatCard(
+				"Total Videos", videoCountLabel);
+		
+		panel.add(creatorCard);
+		panel.add(videoCard);
+		
+		return panel;
+		
+		
+	}
+	
+	private JPanel createStatCard(String heading, JLabel numberLabel) {
+		
+		JPanel panel = new JPanel(new GridLayout(2,1));
+		
+		panel.setBackground(Color.white);
+		panel.setBorder(BorderFactory.createCompoundBorder(
+				BorderFactory.createLineBorder(new Color(220, 225,233)),
+				BorderFactory.createEmptyBorder(10,15,10,15)));
+		
+		 JLabel headingLabel = new JLabel(heading);
+	        headingLabel.setFont(new Font("Arial", Font.BOLD, 12));
+	        headingLabel.setForeground(Color.GRAY);
+
+	        numberLabel.setFont(new Font("Arial", Font.BOLD, 25));
+	        numberLabel.setForeground(new Color(32, 43, 60));
+
+	        panel.add(headingLabel);
+	        panel.add(numberLabel);
+
+	        return panel;
+	    
+
+		
+	}
+	
 }
