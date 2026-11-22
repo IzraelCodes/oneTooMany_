@@ -7,6 +7,7 @@ import java.util.ArrayList;
 
 import javax.swing.BorderFactory;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 public class CreatorsManagerGUI extends JFrame implements ActionListener{
 	
@@ -75,5 +76,17 @@ public class CreatorsManagerGUI extends JFrame implements ActionListener{
 		
 		setVisible(true);
 		
+	} //dashboard header part
+	
+	private JPanel createHeader() {
+		
+		JPanel panel = new JPanel(new BorderLayout());
+		panel.setBackground(new Color(32,43,60));
+		panel.setBorder(BorderFactory.createEmptyBorder(20, 25, 20,25));
+		
+		JLabel titleLabel = new JLabel("CreatorHub");
+		
+		titleLabel.setFont(new Font("Arial", Font.BOLD, 28));
+		titleLabel.setForeground(Color.white);
 	}
 }
