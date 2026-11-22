@@ -1,4 +1,5 @@
 package oneTwoMany;
+import java.awt.Color;
 import java.io.*;
 import java.util.ArrayList;
 
@@ -29,6 +30,12 @@ public class CreatorsManagerGUI extends JFrame implements ActionListener{
 		
 		setSize(900, 600);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setLayout(new BorderLayout());
+		setLayout(new BorderLayout(15,15));
+		
+		creatorList = new ArrayList<>();
+		
+		// background time
+		getContentPane().setBackground(new Color(240, 243, 248));
+		
 	}
 }
