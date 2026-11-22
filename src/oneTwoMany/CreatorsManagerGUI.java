@@ -1,9 +1,11 @@
 package oneTwoMany;
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.GridLayout;
 import java.io.*;
 import java.util.ArrayList;
 
+import javax.swing.BorderFactory;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 public class CreatorsManagerGUI extends JFrame implements ActionListener{
@@ -56,7 +58,22 @@ public class CreatorsManagerGUI extends JFrame implements ActionListener{
 		//Centre section of the UI
 		
 		JPanel centerPanel = new JPanel(new GridLayout(1,2,15,15));
+		centerPanel.setBackground(new Color(240,243,248));
+		centerPanel.setBorder(BorderFactory.createEmptyBorder(10,15,10,15));
 		
+		centerPanel.add(creatorPanel);
+		centerPanel.add(videoPanel);
+		
+		
+		add(topPanel, BorderLayout.NORTH);
+		add(centerPanel, BorderLayout.CENTER);
+		add(footerPanel, BorderLayout.SOUTH);
+		
+		//Function to load creators
+		// Function to Refresh the Creator List
+		// Function to refresh the stats (Video deets)
+		
+		setVisible(true);
 		
 	}
 }
