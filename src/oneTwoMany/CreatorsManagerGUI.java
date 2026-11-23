@@ -158,4 +158,20 @@ public class CreatorsManagerGUI extends JFrame implements ActionListener{
 		
 	}
 	
+	private JPanel createVideoPanel() {
+		
+		JPanel panel = new JPanel(new BorderLayout(5,10));
+		
+		panel.setBackground(Color.white);
+		panel.setBorder(BorderFactory.createCompoundBorder(
+				BorderFactory.createLineBorder(new Color(220, 225, 233)),
+				BorderFactory.createEmptyBorder(15,15,15,15)));
+		
+		JLabel heading =  new JLabel("Selected Creator's Videos");
+		heading.setFont(new Font("Arial", Font.BOLD,18));
+		
+		videoListDisplay = new JList<>(); 
+		heading.setFont(new Font("Arial", Font.BOLD, 18));
+	}
+	
 }
