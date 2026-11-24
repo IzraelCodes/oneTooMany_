@@ -325,8 +325,15 @@ public class CreatorsManagerGUI extends JFrame implements ActionListener {
 				saveCreators();
 				
 				statusLabel.setText("Creator added successfully.");
-			}catch (NumberFormatException ex) {
+				Timer timer = new Timer(3000, event -> statusLabel.setText(" "));
+				timer.setRepeats(false);
+				timer.start();
+				
+			}catch (NumberFormatException | NullPointerException ex) {
 				statusLabel.setText("Creator ID must be a whole number.");
+				Timer timer = new Timer(3000, event -> statusLabel.setText(" "));
+				timer.setRepeats(false);
+				timer.start();
 			}
 		} else if (e.getSource()== addVideoButton) {
 			Creators selected = creatorListDisplay.getSelectedValue();
@@ -348,8 +355,16 @@ public class CreatorsManagerGUI extends JFrame implements ActionListener {
 					refreshStats();
 					saveCreators();
 					statusLabel.setText("Video added successfully.");
-				} catch(NumberFormatException ex) {
-					statusLabel.setText("Video ID and views must be whole numbers!.");
+					
+					Timer timer = new Timer(3000, event -> statusLabel.setText(" "));
+					timer.setRepeats(false);
+					timer.start();
+					
+				} catch(NumberFormatException | NullPointerException ex) {
+					statusLabel.setText("Video ID and views must be whole numbers!");
+				Timer timer = new Timer(3000, event -> statusLabel.setText(" "));
+				timer.setRepeats(false);
+				timer.start();
 				}
 			}
 		
