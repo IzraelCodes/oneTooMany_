@@ -266,6 +266,26 @@ public class CreatorsManagerGUI extends JFrame implements ActionListener {
 		videoCountLabel.setText(String.valueOf(totalVideos));
 	}
 	
+	//Load creator from files
 	
+	private void loadCreators() {
+		 try (FileInputStream fis =
+                 new FileInputStream("creators.dat");
+
+             ObjectInputStream ois =
+                 new ObjectInputStream(fis)) {
+
+            creatorList = (ArrayList<Creators>) ois.readObject();
+
+        } catch (FileNotFoundException ex) {
+            // No saved file exists yet
+        } catch (IOException | ClassNotFoundException ex) {
+            ex.printStackTrace();
+        }	
+		
+}
+	private void saveCreators() {
+		
+	}
 	
 }
