@@ -9,7 +9,9 @@ import java.util.ArrayList;
 import javax.swing.BorderFactory;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JList;
 import javax.swing.JPanel;
+import javax.swing.ListSelectionModel;
 public class CreatorsManagerGUI extends JFrame implements ActionListener{
 	
 	private JList<Creators> creatorListDisplay;
@@ -171,7 +173,33 @@ public class CreatorsManagerGUI extends JFrame implements ActionListener{
 		heading.setFont(new Font("Arial", Font.BOLD,18));
 		
 		videoListDisplay = new JList<>(); 
-		heading.setFont(new Font("Arial", Font.BOLD, 18));
+		videoListDisplay.setFont(new Font("Arial", Font.BOLD, 18));
+		
+		JScrollPane scrollPane = new JScrollPane(videoListDisplay);
+		
+		panel.add(heading, BorderLayout.NORTH);
+		panel.add(scrollPane, BorderLayout.CENTER);
+		
+		return panel;
 	}
 	
+	//library for creators
+	private JPanel createCreatorPanel() {
+		JPanel panel = new JPanel(new BorderLayout(5, 10));
+		
+		panel.setBackground(Color.white);
+		panel.setBorder(BorderFactory.createCompoundBorder(
+				BorderFactory.createLineBorder(new Color(220,225,233)),
+				BorderFactory.createEmptyBorder(15,15,15,15)));
+		
+		JLabel heading = new JLabel("Creator Library");
+		heading.setFont(new Font("Arial", Font.BOLD, 18));
+		
+		creatorListDisplay = new JList<>();
+		creatorListDisplay.setFont(new Font("Arial", Font.PLAIN,14));
+		creatorListDisplay.setSelectionMode(ListSelectionModel.SINGLE_SELECTION); //YOUTUBE THANK YOU 
+		
+		JScrollPane scrollPane = new JScrollPane(creatorListDisplay);
+		
+	}
 }
