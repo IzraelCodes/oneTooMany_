@@ -24,6 +24,10 @@ public class CreatorsManagerGUI extends JFrame implements ActionListener {
 	
 	private JButton addCreatorButton;
 	private JButton addVideoButton;
+	private JButton editCreatorButton;
+	private JButton editVideoButton;
+	private JButton deleteCreatorButton;
+	private JButton deleteVideoButton;
 	
 	private JLabel creatorCountLabel;
 	private JLabel videoCountLabel;
@@ -227,23 +231,50 @@ public class CreatorsManagerGUI extends JFrame implements ActionListener {
 		panel.setBackground(new Color(240, 243, 248));
 		panel.setBorder(BorderFactory.createEmptyBorder(5,15,15,15));
 		
-		JPanel buttonPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
+		JPanel buttonPanel = new JPanel(new GridLayout(1, 2, 15, 0));
+		buttonPanel.setOpaque(false);
+
 		
 		buttonPanel.setBackground(new Color(240,243,248));
 		
 		addCreatorButton = new JButton("Add Creator");
+		editCreatorButton = new JButton("Edit Creator");
+		deleteCreatorButton = new JButton("Delete Creator");
+		
 		addVideoButton = new JButton("Add Video");
+		editVideoButton = new JButton("Edit Video");
+		deleteVideoButton = new JButton("Delete Video");
 		
 		addCreatorButton.addActionListener(this);
 		addVideoButton.addActionListener(this);
 		
-		buttonPanel.add(addCreatorButton);
-		buttonPanel.add(addVideoButton);
+		editCreatorButton.addActionListener(this);
+		editVideoButton.addActionListener(this);
+		deleteVideoButton.addActionListener(this);
+		deleteCreatorButton.addActionListener(this);
+		
+		JPanel creatorButtons = new JPanel(new FlowLayout(FlowLayout.LEFT));
+		creatorButtons.setOpaque(false);
+
+		creatorButtons.add(addCreatorButton);
+		creatorButtons.add(editCreatorButton);
+		creatorButtons.add(deleteCreatorButton);
+
+		JPanel videoButtons = new JPanel(new FlowLayout(FlowLayout.RIGHT));
+		videoButtons.setOpaque(false);
+
+		videoButtons.add(addVideoButton);
+		videoButtons.add(editVideoButton);
+		videoButtons.add(deleteVideoButton);
+		
+
+		buttonPanel.add(creatorButtons);
+		buttonPanel.add(videoButtons);
 		
 		statusLabel = new JLabel("Welcome to CreatorHub");
 		statusLabel.setForeground(new Color(70, 90,110));
 		
-		panel.add(buttonPanel, BorderLayout.WEST);
+		panel.add(buttonPanel, BorderLayout.CENTER);
 		panel.add(statusLabel, BorderLayout.SOUTH);
 		
 		return panel;

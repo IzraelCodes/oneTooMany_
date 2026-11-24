@@ -18,12 +18,20 @@ public class Video implements Serializable{
 	public String getVideoTitle() {
 		return videoTitle;
 	}
+	public void setVidoTitle(String videoTitle) {
+		this.videoTitle = videoTitle;
+	}
 	public int getViews() {
 		return views;
 	}
+	public void setViews(int views) {
+		this.views = views;
+	}
+	
 	public Creators getCreator() {
 		return creator;
 	}
+
 	
 	@Override
 	public String toString() {

@@ -21,15 +21,27 @@ public class Creators implements Serializable {
 	public String getName() {
 		return name;
 	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	
 	public int getSubscribers() {
 		return Subscribers;
+	}
+	public void setSubscribers(int Subscribers) {
+		this.Subscribers = Subscribers;
 	}
 	public ArrayList<Video> getVideos(){
 		return videos;
 	}
 	
+	// Functions
 	public void addVideos(Video video) {
 		videos.add(video);
+	}
+	
+	public void removeVideo(Video video) {
+		videos.remove(video);
 	}
 	
 	@Override
