@@ -241,4 +241,11 @@ public class CreatorsManagerGUI extends JFrame implements ActionListener {
 		return panel;
 		
 	}
+	
+	//Refresh Creator list
+	
+	private void refreshCreatorList() {
+		creatorListDisplay.setListData(creatorList.toArray(new Creators[0]));
+		
+	}
 }
