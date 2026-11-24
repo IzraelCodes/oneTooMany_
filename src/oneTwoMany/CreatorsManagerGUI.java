@@ -451,6 +451,29 @@ public class CreatorsManagerGUI extends JFrame implements ActionListener {
 			
 		} else if(e.getSource() == deleteCreatorButton) {
 			
+			Creators selected = creatorListDisplay.getSelectedValue();
+			
+			if(selected != null) {
+				
+				int confirm = JOptionPane.showConfirmDialog(this, 
+						"Are you sure you want to delete " + selected.getName()
+						+"?\nAll videos bt them will also be deleted.",
+						"Delete Creator",
+						JOptionPane.YES_NO_OPTION);
+				
+				if(confirm == JOptionPane.YES_OPTION) {
+					creatorList.remove(selected);
+					
+					refreshCreatorList();
+					videoListDisplay.setListData(new Video [0]);
+					refreshStats();
+					saveCreators();
+					
+					statusLabel.setText("Creator deleted successfully");
+					
+					//TIMER here LATER running out of time
+				}
+			}
 		} else if(e.getSource() == deleteVideoButton) {
 			
 		}
