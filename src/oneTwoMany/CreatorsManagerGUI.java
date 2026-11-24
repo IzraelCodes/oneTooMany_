@@ -4,6 +4,7 @@ import java.awt.Color;
 import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.*;
 import java.util.ArrayList;
@@ -283,9 +284,73 @@ public class CreatorsManagerGUI extends JFrame implements ActionListener {
             ex.printStackTrace();
         }	
 		
-}
+	}
 	private void saveCreators() {
+		  try (FileOutputStream fos =
+	                 new FileOutputStream("creators.dat");
+
+	             ObjectOutputStream oos =
+	                 new ObjectOutputStream(fos)) {
+
+	            oos.writeObject(creatorList);
+
+	        } catch (IOException ex) {
+	            ex.printStackTrace();
+	        }
+	}
+	@Override
+	//Button features and stuff
+	public void actionPerformed(ActionEvent e) {
+		//add creator first
+		
+		if(e.getSource() == addCreatorButton) {
+			try {
+				String idInput = JOptionPane.showInputDialog(this, "Enter Creator ID:");
+				String name   = JOptionPane.showInputDialog(this, "Enter Creator Name:");
+				String subscribersInput = JOptionPane.showInputDialog(this, "Enter Creators Subscriber count:");
+				
+				int id = Integer.parseInt(idInput.trim());
+				int subscribers = Integer.parseInt(subscribersInput);
+				Creators creator = new Creators(id, name.trim(), subscribers);
+				creatorList.add(creator);
+				refreshCreatorList();
+				refreshStats();
+				saveCreators();
+				
+				statusLabel.setText("Creator added successfully.");
+			}catch (NumberFormatException ex) {
+				statusLabel.setText("Creator ID must be a whole number.");
+			}
+		} else if (e.getSource()== addVideoButton) {
+			Creators selected = creatorListDisplay.getSelectedValue();
+			
+			if (selected == null) {
+				statusLabel.setText("Select a creator first please");
+			}else {
+				try {
+					String idInput = JOptionPane.showInputDialog(this,"Enter Video ID:");
+					String title = JOptionPane.showInputDialog(this,"Enter Video Title:");
+					String viewsInput = JOptionPane.showInputDialog(this,"Enter Number of views:");
+					
+					int id = Integer.parseInt(idInput.trim());
+					int views = Integer.parseInt(viewsInput.trim());
+					
+					Video video = new Video(id, title, views, selected);
+					selected.addVideos(video);
+					showVideos(selected);
+					refreshStats();
+					saveCreators();
+					statusLabel.setText("Video added successfully.");
+				} catch(NumberFormatException ex) {
+					statusLabel.setText("Video ID and views must be whole numbers!.");
+				}
+			}
+		
+		}
 		
 	}
+	public static void main(String[] args) {
+		new CreatorsManagerGUI();
 	
+	}
 }
