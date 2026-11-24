@@ -34,9 +34,12 @@ public class Creators implements Serializable {
 	
 	@Override
 	public String toString() {
-		return "Creator ID: " + creatorId +
-				"\nCreator name: " + name +
-				"\n Videos: " + videos.size();
+		return "<html>" +
+		           "<b>" + name + "</b><br>" +
+		           "<font color='gray'>Creator ID: " + creatorId + "</font><br>" +
+		           "Subscribers: " + String.format("%,d", Subscribers) + "<br>" +
+		           "Videos: " + videos.size() +
+		           "</html>";
 	}
 
 	

@@ -15,12 +15,12 @@ public class CreatorsManagerGUI extends JFrame implements ActionListener {
 	private JList<Creators> creatorListDisplay;
 	private JList<Video> videoListDisplay;
 	
-	private JTextField creatorNameField;
-	private JTextField creatorIdField;
+	private JTextField creatorNameField; //WOI (WOULD HAVE INTEGRATED BUT CONTEMPLATING)
+	private JTextField creatorIdField; //WOI
 	
-	private JTextField videoIdField;
-	private JTextField videoTitleField;
-	private JTextField viewsField;
+	private JTextField videoIdField; //WOI
+	private JTextField videoTitleField; //WOI
+	private JTextField viewsField; //WOI 
 	
 	private JButton addCreatorButton;
 	private JButton addVideoButton;
@@ -57,7 +57,7 @@ public class CreatorsManagerGUI extends JFrame implements ActionListener {
 		topPanel.add(headerPanel, BorderLayout.NORTH);
 		topPanel.add(statsPanel, BorderLayout.CENTER);
 		
-		//Centre section of the UI
+		//Center section of the UI
 		
 		JPanel centerPanel = new JPanel(new GridLayout(1,2,15,15));
 		centerPanel.setBackground(new Color(240,243,248));
@@ -71,9 +71,11 @@ public class CreatorsManagerGUI extends JFrame implements ActionListener {
 		add(centerPanel, BorderLayout.CENTER);
 		add(footerPanel, BorderLayout.SOUTH);
 		
-		//Function to load creators
-		// Function to Refresh the Creator List
-		// Function to refresh the stats (Video deets)
+		
+		loadCreators();
+		
+		refreshCreatorList();
+		refreshStats();
 		
 		setVisible(true);
 		
@@ -94,7 +96,7 @@ public class CreatorsManagerGUI extends JFrame implements ActionListener {
 				"YOUTUBE CREATOR MANAGMENT");
 		
 		subtitleLabel.setFont(new Font("Arial", Font.PLAIN , 11));
-		subtitleLabel.setForeground(new Color(32, 43, 60));
+		subtitleLabel.setForeground(Color.LIGHT_GRAY);
 		
 		JPanel textPanel = new JPanel(new GridLayout(2, 1));
 		textPanel.setBackground(new Color(32, 43, 60));
@@ -102,6 +104,7 @@ public class CreatorsManagerGUI extends JFrame implements ActionListener {
 		textPanel.add(titleLabel);
 		textPanel.add(subtitleLabel);
 		
+		panel.add(textPanel, BorderLayout.WEST);
 		return panel;
 		
 		
@@ -201,9 +204,14 @@ public class CreatorsManagerGUI extends JFrame implements ActionListener {
 		
 		creatorListDisplay.addListSelectionListener(e -> {
 			if(!e.getValueIsAdjusting()) {
-				Creators selected =
-				creatorListDisplay.getSelectedValue();
-			}
+				Creators selected = creatorListDisplay.getSelectedValue();
+				
+				if(selected != null) {
+					showVideos(selected);
+				}else {
+					videoListDisplay.setListData(new Video[0]);
+				}
+			} 
 		});
 		
 		panel.add(heading, BorderLayout.NORTH);
@@ -263,7 +271,7 @@ public class CreatorsManagerGUI extends JFrame implements ActionListener {
 			totalVideos += creator.getVideos().size();
 		}
 		
-		creatorCountLabel.setText(String.valueOf(totalVideos));
+		creatorCountLabel.setText(String.valueOf(creatorList.size()));
 		videoCountLabel.setText(String.valueOf(totalVideos));
 	}
 	
