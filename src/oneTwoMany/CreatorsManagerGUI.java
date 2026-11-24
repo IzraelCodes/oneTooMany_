@@ -409,6 +409,14 @@ public class CreatorsManagerGUI extends JFrame implements ActionListener {
 				}
 			}
 		
+		} else if(e.getSource()== editCreatorButton) {
+			
+		} else if(e.getSource() == editVideoButton) {
+			
+		} else if(e.getSource() == deleteCreatorButton) {
+			
+		} else if(e.getSource() == deleteVideoButton) {
+			
 		}
 		
 	}
