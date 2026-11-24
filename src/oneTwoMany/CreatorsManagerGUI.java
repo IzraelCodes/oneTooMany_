@@ -180,6 +180,7 @@ public class CreatorsManagerGUI extends JFrame implements ActionListener {
 		videoListDisplay.setFont(new Font("Arial", Font.PLAIN, 14));
 		
 		JScrollPane scrollPane = new JScrollPane(videoListDisplay);
+		//SetBorder empty Gets rid of them horrible lines around the scroll pane dont know if i can change the scroll wheel icon doe.
 		scrollPane.setBorder(BorderFactory.createEmptyBorder());
 		
 		panel.add(heading, BorderLayout.NORTH);
@@ -423,5 +424,5 @@ public class CreatorsManagerGUI extends JFrame implements ActionListener {
 
 //Maybe work on some more GUI related stuff
 
-//EDIT and DELETE
+//EDIT and DELETE /50%
 
