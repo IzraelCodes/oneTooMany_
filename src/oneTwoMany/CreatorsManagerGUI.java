@@ -254,4 +254,18 @@ public class CreatorsManagerGUI extends JFrame implements ActionListener {
 		
 		videoListDisplay.setListData(creator.getVideos().toArray(new Video[0]));
 	}
+	private void refreshStats() {
+		
+		int totalVideos = 0;
+		
+		for(Creators creator : creatorList) {
+			totalVideos += creator.getVideos().size();
+		}
+		
+		creatorCountLabel.setText(String.valueOf(totalVideos));
+		videoCountLabel.setText(String.valueOf(totalVideos));
+	}
+	
+	
+	
 }
