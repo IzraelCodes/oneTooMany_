@@ -31,7 +31,7 @@ public class Video implements Serializable{
 		           "<b>" + videoTitle + "</b><br>" +
 		           "<font color='gray'>Video ID: " + videoId + "</font><br>" +
 		           "Creator: " + creator.getName() + "<br>" +
-		           "Views: " + String.format("%,d", views) +
+		           "Views: " +  NumberFormatter.formatNumber(views) +
 		           "</html>";
 	}
 }

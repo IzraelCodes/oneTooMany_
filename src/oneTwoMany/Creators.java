@@ -37,7 +37,7 @@ public class Creators implements Serializable {
 		return "<html>" +
 		           "<b>" + name + "</b><br>" +
 		           "<font color='gray'>Creator ID: " + creatorId + "</font><br>" +
-		           "Subscribers: " + String.format("%,d", Subscribers) + "<br>" +
+		           "Subscribers: " +  NumberFormatter.formatNumber(Subscribers) + "<br>" +
 		           "Videos: " + videos.size() +
 		           "</html>";
 	}
