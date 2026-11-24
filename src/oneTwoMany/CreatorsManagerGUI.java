@@ -449,6 +449,40 @@ public class CreatorsManagerGUI extends JFrame implements ActionListener {
 			
 		} else if(e.getSource() == editVideoButton) {
 			
+			Video selected = videoListDisplay.getSelectedValue();
+			
+			if( selected != null) {
+				try {
+					String title = JOptionPane.showInputDialog(this, "Edit Video Title: ", selected.getVideoTitle());
+					String viewsInput = JOptionPane.showInputDialog(this, "Edit Videos Views: ", selected.getViews());
+					
+					if(title == null || viewsInput == null) {
+						return;
+					}
+					int views = Integer.parseInt(viewsInput);
+					
+					if(title.isEmpty() || views < 0) {
+						statusLabel.setText("Invalid video details");
+						return;
+					}
+					
+					selected.setVideoTitle(title);
+					selected.setViews(views);
+					
+					showVideos(selected.getCreator());
+					videoListDisplay.setSelectedValue(selected, true);
+					refreshStats();
+					saveCreators();
+					
+					statusLabel.setText("Video has been Editted successfully");
+					
+					//timer
+				} catch(NumberFormatException ex) {
+					statusLabel.setText("Enter a valid view count.");
+					//timer
+				}
+			}
+			
 		} else if(e.getSource() == deleteCreatorButton) {
 			
 			Creators selected = creatorListDisplay.getSelectedValue();

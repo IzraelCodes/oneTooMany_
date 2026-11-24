@@ -18,7 +18,7 @@ public class Video implements Serializable{
 	public String getVideoTitle() {
 		return videoTitle;
 	}
-	public void setVidoTitle(String videoTitle) {
+	public void setVideoTitle(String videoTitle) {
 		this.videoTitle = videoTitle;
 	}
 	public int getViews() {
