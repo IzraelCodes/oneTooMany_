@@ -5,13 +5,8 @@ import java.awt.Font;
 import java.awt.GridLayout;
 import java.io.*;
 import java.util.ArrayList;
+import javax.swing.*;
 
-import javax.swing.BorderFactory;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JList;
-import javax.swing.JPanel;
-import javax.swing.ListSelectionModel;
 public class CreatorsManagerGUI extends JFrame implements ActionListener{
 	
 	private JList<Creators> creatorListDisplay;
@@ -200,6 +195,18 @@ public class CreatorsManagerGUI extends JFrame implements ActionListener{
 		creatorListDisplay.setSelectionMode(ListSelectionModel.SINGLE_SELECTION); //YOUTUBE THANK YOU 
 		
 		JScrollPane scrollPane = new JScrollPane(creatorListDisplay);
+		
+		creatorListDisplay.addListSelectionListener(e -> {
+			if(!e.getValueIsAdjusting()) {
+				Creators selected =
+				creatorListDisplay.getSelectedValue();
+			}
+		});
+		
+		panel.add(heading, BorderLayout.NORTH);
+		panel.add(scrollPane,BorderLayout.CENTER);
+		
+		return panel;
 		
 	}
 }
