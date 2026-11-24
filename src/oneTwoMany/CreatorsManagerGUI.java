@@ -273,6 +273,9 @@ public class CreatorsManagerGUI extends JFrame implements ActionListener {
 		creatorCountLabel.setText(String.valueOf(creatorList.size()));
 		videoCountLabel.setText(String.valueOf(totalVideos));
 	}
+	private void sampleData() { //Place HOLDER for now
+		
+	}
 	
 	//Load creator from files
 	
