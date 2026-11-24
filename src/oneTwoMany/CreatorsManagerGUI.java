@@ -174,7 +174,7 @@ public class CreatorsManagerGUI extends JFrame implements ActionListener {
 		heading.setFont(new Font("Arial", Font.BOLD,18));
 		
 		videoListDisplay = new JList<>(); 
-		videoListDisplay.setFont(new Font("Arial", Font.BOLD, 18));
+		videoListDisplay.setFont(new Font("Arial", Font.PLAIN, 14));
 		
 		JScrollPane scrollPane = new JScrollPane(videoListDisplay);
 		
