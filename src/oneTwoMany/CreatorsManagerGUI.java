@@ -1,13 +1,15 @@
 package oneTwoMany;
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.GridLayout;
+import java.awt.event.ActionListener;
 import java.io.*;
 import java.util.ArrayList;
 import javax.swing.*;
 
-public class CreatorsManagerGUI extends JFrame implements ActionListener{
+public class CreatorsManagerGUI extends JFrame implements ActionListener {
 	
 	private JList<Creators> creatorListDisplay;
 	private JList<Video> videoListDisplay;
@@ -205,6 +207,36 @@ public class CreatorsManagerGUI extends JFrame implements ActionListener{
 		
 		panel.add(heading, BorderLayout.NORTH);
 		panel.add(scrollPane,BorderLayout.CENTER);
+		
+		return panel;
+		
+	}
+	
+	private JPanel createFooter() {
+		
+		JPanel panel = new JPanel(new BorderLayout());
+		
+		panel.setBackground(new Color(240, 243, 248));
+		panel.setBorder(BorderFactory.createEmptyBorder(5,15,15,15));
+		
+		JPanel buttonPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
+		
+		buttonPanel.setBackground(new Color(240,243,248));
+		
+		addCreatorButton = new JButton("Add Creator");
+		addVideoButton = new JButton("Add Video");
+		
+		addCreatorButton.addActionListener(this);
+		addVideoButton.addActionListener(this);
+		
+		buttonPanel.add(addCreatorButton);
+		buttonPanel.add(addVideoButton);
+		
+		statusLabel = new JLabel("Welcome to CreatorHub");
+		statusLabel.setForeground(new Color(70, 90,110));
+		
+		panel.add(buttonPanel, BorderLayout.WEST);
+		panel.add(statusLabel, BorderLayout.SOUTH);
 		
 		return panel;
 		
