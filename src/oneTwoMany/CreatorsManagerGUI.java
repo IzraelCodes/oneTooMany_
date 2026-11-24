@@ -248,4 +248,10 @@ public class CreatorsManagerGUI extends JFrame implements ActionListener {
 		creatorListDisplay.setListData(creatorList.toArray(new Creators[0]));
 		
 	}
+	
+	//Display selected creators videos.
+	private void showVideos(Creators creator) {
+		
+		videoListDisplay.setListData(creator.getVideos().toArray(new Video[0]));
+	}
 }
