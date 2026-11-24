@@ -83,7 +83,7 @@ public class CreatorsManagerGUI extends JFrame implements ActionListener {
 	
 	private JPanel createHeader() {
 		
-		JPanel panel = new JPanel(new BorderLayout());
+		JPanel panel = new RoundedPanel(25, new BorderLayout());
 		panel.setBackground(new Color(32,43,60));
 		panel.setBorder(BorderFactory.createEmptyBorder(20, 25, 20,25));
 		
@@ -138,12 +138,11 @@ public class CreatorsManagerGUI extends JFrame implements ActionListener {
 	
 	private JPanel createStatCard(String heading, JLabel numberLabel) {
 		
-		JPanel panel = new JPanel(new GridLayout(2,1));
+		JPanel panel = new RoundedPanel(25, new GridLayout(2, 1));
 		
 		panel.setBackground(Color.white);
-		panel.setBorder(BorderFactory.createCompoundBorder(
-				BorderFactory.createLineBorder(new Color(220, 225,233)),
-				BorderFactory.createEmptyBorder(10,15,10,15)));
+		panel.setBorder(BorderFactory.createEmptyBorder(10, 15, 10, 15));
+				
 		
 		 JLabel headingLabel = new JLabel(heading);
 	        headingLabel.setFont(new Font("Arial", Font.BOLD, 12));
@@ -163,12 +162,12 @@ public class CreatorsManagerGUI extends JFrame implements ActionListener {
 	
 	private JPanel createVideoPanel() {
 		
-		JPanel panel = new JPanel(new BorderLayout(5,10));
+		JPanel panel = new RoundedPanel(25);
+		panel.setLayout(new BorderLayout(5, 10));
 		
 		panel.setBackground(Color.white);
-		panel.setBorder(BorderFactory.createCompoundBorder(
-				BorderFactory.createLineBorder(new Color(220, 225, 233)),
-				BorderFactory.createEmptyBorder(15,15,15,15)));
+		panel.setBorder(BorderFactory.createEmptyBorder(15,15,15,15));
+		
 		
 		JLabel heading =  new JLabel("Selected Creator's Videos");
 		heading.setFont(new Font("Arial", Font.BOLD,18));
@@ -177,6 +176,7 @@ public class CreatorsManagerGUI extends JFrame implements ActionListener {
 		videoListDisplay.setFont(new Font("Arial", Font.PLAIN, 14));
 		
 		JScrollPane scrollPane = new JScrollPane(videoListDisplay);
+		scrollPane.setBorder(BorderFactory.createEmptyBorder());
 		
 		panel.add(heading, BorderLayout.NORTH);
 		panel.add(scrollPane, BorderLayout.CENTER);
@@ -186,13 +186,11 @@ public class CreatorsManagerGUI extends JFrame implements ActionListener {
 	
 	//library for creators
 	private JPanel createCreatorPanel() {
-		JPanel panel = new JPanel(new BorderLayout(5, 10));
+		JPanel panel = new RoundedPanel(25, new BorderLayout(5, 10));
 		
 		panel.setBackground(Color.white);
-		panel.setBorder(BorderFactory.createCompoundBorder(
-				BorderFactory.createLineBorder(new Color(220,225,233)),
-				BorderFactory.createEmptyBorder(15,15,15,15)));
-		
+		panel.setBorder(BorderFactory.createEmptyBorder(15,15,15,15));
+				
 		JLabel heading = new JLabel("Creator Library");
 		heading.setFont(new Font("Arial", Font.BOLD, 18));
 		
@@ -201,6 +199,7 @@ public class CreatorsManagerGUI extends JFrame implements ActionListener {
 		creatorListDisplay.setSelectionMode(ListSelectionModel.SINGLE_SELECTION); //YOUTUBE THANK YOU 
 		
 		JScrollPane scrollPane = new JScrollPane(creatorListDisplay);
+		scrollPane.setBorder(BorderFactory.createEmptyBorder());
 		
 		creatorListDisplay.addListSelectionListener(e -> {
 			if(!e.getValueIsAdjusting()) {
@@ -223,7 +222,7 @@ public class CreatorsManagerGUI extends JFrame implements ActionListener {
 	
 	private JPanel createFooter() {
 		
-		JPanel panel = new JPanel(new BorderLayout());
+		JPanel panel = new RoundedPanel(15, new BorderLayout());
 		
 		panel.setBackground(new Color(240, 243, 248));
 		panel.setBorder(BorderFactory.createEmptyBorder(5,15,15,15));

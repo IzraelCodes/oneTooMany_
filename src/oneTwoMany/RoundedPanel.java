@@ -17,8 +17,22 @@ protected void paintComponent(Graphics g) {
 	g2.setColor(getBackground());
 	
 	g2.fillRoundRect(0, 0, getWidth(), getHeight(), radius, radius);
+	
+	g2.setColor(new Color(220, 225, 233));
+
+	g2.drawRoundRect(
+	    0, 0,
+	    getWidth() - 1,
+	    getHeight() - 1,
+	    radius, radius
+	    );
 	g2.dispose();
 	
 	super.paintComponent(g);
 	}
+public RoundedPanel(int radius, LayoutManager layout) {
+	super(layout);
+	this.radius=radius;
+	setOpaque(false);
+}
 }
