@@ -274,7 +274,13 @@ public class CreatorsManagerGUI extends JFrame implements ActionListener {
 		videoCountLabel.setText(String.valueOf(totalVideos));
 	}
 	private void sampleData() { //Place HOLDER for now
+		//Three creators need to be made
 		
+		// Create 1-2 Videos per creator
+		
+		//Linked to respective creator
+		
+		//save sample data
 	}
 	
 	//Load creator from files
@@ -379,3 +385,12 @@ public class CreatorsManagerGUI extends JFrame implements ActionListener {
 	
 	}
 }
+// TODO CHART WHICH IS AVG VIEW PER VIDEO OF EACH CREATOR
+// Average views = Total video views / number of videos
+
+//Custom Exception
+
+//Maybe work on some more GUI related stuff
+
+//EDIT and DELETE
+
