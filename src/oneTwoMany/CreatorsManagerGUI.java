@@ -605,9 +605,9 @@ public class CreatorsManagerGUI extends JFrame implements ActionListener {
 	}
 }
 // TODO CHART WHICH IS AVG VIEW PER VIDEO OF EACH CREATOR
-// Average views = Total video views / number of videos
+// Average views = Total video views / number of videos (DOING NOW)
 
-//Custom Exception 90%
+
 
 //Maybe work on some more GUI related stuff
 
