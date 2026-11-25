@@ -14,14 +14,7 @@ public class CreatorsManagerGUI extends JFrame implements ActionListener {
 	
 	private JList<Creators> creatorListDisplay;
 	private JList<Video> videoListDisplay;
-	
-	private JTextField creatorNameField; //WOI (WOULD HAVE INTEGRATED BUT CONTEMPLATING)
-	private JTextField creatorIdField; //WOI
-	
-	private JTextField videoIdField; //WOI
-	private JTextField videoTitleField; //WOI
-	private JTextField viewsField; //WOI 
-	
+
 	private JButton addCreatorButton;
 	private JButton addVideoButton;
 	private JButton editCreatorButton;
@@ -510,6 +503,32 @@ public class CreatorsManagerGUI extends JFrame implements ActionListener {
 			}
 		} else if(e.getSource() == deleteVideoButton) {
 			
+			Video selected = videoListDisplay.getSelectedValue();
+			
+			if (selected != null) {
+				
+				int confirm = JOptionPane.showConfirmDialog(this,
+						"Are you sure you want to delete " +
+						selected.getVideoTitle() + "?",
+						"Delete Video", JOptionPane.YES_NO_OPTION);
+				
+				if(confirm == JOptionPane.YES_OPTION) {
+					Creators creator = selected.getCreator();
+					creator.removeVideo(selected);
+					
+					refreshCreatorList();
+					creatorListDisplay.setSelectedValue(creator, true);
+					showVideos(creator);
+					refreshStats();
+					saveCreators();
+					
+					statusLabel.setText("Video Deleted successfully");
+					// Timer
+					
+				} else {
+					statusLabel.setText("Select a video first ");
+				}
+			}
 		}
 		
 	}
