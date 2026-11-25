@@ -612,4 +612,6 @@ public class CreatorsManagerGUI extends JFrame implements ActionListener {
 //Maybe work on some more GUI related stuff
 
 
+// Average views = total video views/ number of videos 
+
 

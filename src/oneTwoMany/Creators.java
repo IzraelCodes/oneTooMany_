@@ -50,6 +50,20 @@ public class Creators implements Serializable {
 	public void removeVideo(Video video) {
 		videos.remove(video);
 	}
+	public long getTotalViews() { //Long chosen because mr Beast has a lot of views per creator also
+		long totalViews = 0;
+		
+		for(Video video : videos) {
+			totalViews += video.getViews();
+		}
+		return totalViews;
+	}
+	public double getAverageViews() { //per creator
+		if(videos.isEmpty()) {
+			return 0;
+		}
+		return (double) getTotalViews() / videos.size();
+	}
 	
 	@Override
 	public String toString() {
