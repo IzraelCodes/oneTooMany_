@@ -299,7 +299,51 @@ public class CreatorsManagerGUI extends JFrame implements ActionListener {
 	}
 	private void sampleData() { 
 		
+		Creators c1 = new Creators(0001,"MrBeast", 528_479_835);
+		Creators c2 = new Creators(0002,"IShowspeed", 63_386_487);
+		Creators c3 = new Creators(0003, "Beta Squad", 12_230_104);
+		
+		// Videos for MRBEAST
+		
+		Video v1 = new Video(1, "$250,000 Hunger Games in Real Life", 102_000_000, c1);
+		Video v2 = new Video(2, "Beat Professional Athlete, Win $100,000", 105_000_000, c1);
+		Video v3 = new Video(3, "Lose 150 Lbs Together, Win $250,000", 202_000_000, c1);
+		
+		// Videos / LiveStreams for IShowspeed
+		
+		Video v4 = new Video(1, "FIRST TO MAKE $1 MILLION IN GTA 6 WINS! ft.Kai Cenat", 5_000_000,c2);
+		Video v5 = new Video(2, "EXPLORING VICE CITY - GTA 6 STREAM (EASTER EGGS)", 10_000_000,c2);
+		Video v6 = new Video(3, "BEATING GTA 6 RIGHT NOW 100% (FINAL MISSION)", 24_000_000,c2);
+		
+		//Videos for Beta Squad
+		
+		Video v7 = new Video(1, "BETA SQUAD BAKE OFF", 4_100_000, c3);
+		Video v8 = new Video(2, "We Opened a Drive-Thru", 5_700_000, c3);
+		Video v9 = new Video(3, "CHEAP VS EXPENSIVE ROAD TRIP (USA EDITION)", 7_400_000,c3);
+		
+		//adding them 
+		c1.addVideos(v1);
+		c1.addVideos(v2);
+		c1.addVideos(v3);
+		
+		c2.addVideos(v4);
+		c2.addVideos(v5);
+		c2.addVideos(v6);
+		
+		c3.addVideos(v7);
+		c3.addVideos(v8);
+		c3.addVideos(v9);
+		
+		//adds creators to main Array list
+		creatorList.add(c1);
+		creatorList.add(c2);
+		creatorList.add(c3);
+		
+		refreshCreatorList();
+		refreshStats();
+		saveCreators();
 	}
+	
 	
 	//Load creator from files
 	
@@ -311,11 +355,14 @@ public class CreatorsManagerGUI extends JFrame implements ActionListener {
                  new ObjectInputStream(fis)) {
 
             creatorList = (ArrayList<Creators>) ois.readObject();
+            
+            refreshCreatorList();
+            refreshStats();
 
         } catch (FileNotFoundException ex) {
-            // No saved file exists yet
+                sampleData();
         } catch (IOException | ClassNotFoundException ex) {
-            ex.printStackTrace();
+            statusLabel.setText("Could not load creator data.");
         }	
 		
 	}
