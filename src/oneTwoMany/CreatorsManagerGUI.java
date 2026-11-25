@@ -408,6 +408,13 @@ public class CreatorsManagerGUI extends JFrame implements ActionListener {
 				
 				int id = Integer.parseInt(idInput.trim());
 				int subscribers = Integer.parseInt(subscribersInput);
+				
+				for(Creators existing : creatorList) {
+					if(existing.getCreatorId() == id) {
+						throw new InvalidCreatorDataException("A Creator with that ID already exists");
+					}
+				}
+				
 				Creators creator = new Creators(id, name.trim(), subscribers);
 				creatorList.add(creator);
 				refreshCreatorList();
@@ -417,7 +424,7 @@ public class CreatorsManagerGUI extends JFrame implements ActionListener {
 				showStatus("Creator added successfully.");
 				
 			}catch (NumberFormatException ex) {
-				showStatus("Creator ID must be a whole number.");
+				showStatus("Creator ID and Subscribers must be a whole number.");
 				
 				
 			} catch (InvalidCreatorDataException ex ) {
@@ -475,7 +482,7 @@ public class CreatorsManagerGUI extends JFrame implements ActionListener {
 					}
 					int subscribers = Integer.parseInt(subscribersInput);
 					
-					if(name.isEmpty()) { 
+					if(name.trim().isEmpty()) { 
 						statusLabel.setText("Invalid creator details, name can't be empty.");
 						return;
 					}
@@ -514,7 +521,7 @@ public class CreatorsManagerGUI extends JFrame implements ActionListener {
 					}
 					int views = Integer.parseInt(viewsInput);
 					
-					if(title.isEmpty()) {
+					if(title.trim().isEmpty()) {
 						statusLabel.setText("Invalid video details. Title can't be empty");
 						return;
 					}
