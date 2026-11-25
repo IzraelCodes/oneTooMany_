@@ -394,6 +394,10 @@ public class CreatorsManagerGUI extends JFrame implements ActionListener {
 				String name   = JOptionPane.showInputDialog(this, "Enter Creator Name:");
 				String subscribersInput = JOptionPane.showInputDialog(this, "Enter Creators Subscriber count:");
 				
+				if(idInput == null || name == null || subscribersInput == null) {
+					return;
+				}
+				
 				int id = Integer.parseInt(idInput.trim());
 				int subscribers = Integer.parseInt(subscribersInput);
 				Creators creator = new Creators(id, name.trim(), subscribers);
@@ -407,8 +411,16 @@ public class CreatorsManagerGUI extends JFrame implements ActionListener {
 				timer.setRepeats(false);
 				timer.start();
 				
-			}catch (NumberFormatException | NullPointerException | InvalidCreatorDataException ex) {
+			}catch (NumberFormatException ex) {
 				statusLabel.setText("Creator ID must be a whole number.");
+				
+				Timer timer = new Timer(3000, event -> statusLabel.setText(" "));
+				timer.setRepeats(false);
+				timer.start();
+				
+			} catch (InvalidCreatorDataException ex ) {
+				statusLabel.setText(ex.getMessage());
+				
 				Timer timer = new Timer(3000, event -> statusLabel.setText(" "));
 				timer.setRepeats(false);
 				timer.start();
@@ -424,8 +436,13 @@ public class CreatorsManagerGUI extends JFrame implements ActionListener {
 					String title = JOptionPane.showInputDialog(this,"Enter Video Title:");
 					String viewsInput = JOptionPane.showInputDialog(this,"Enter Number of views:");
 					
+					if(idInput == null || title == null || viewsInput == null) {
+						return;
+					} // Dont need null for these anymore since it catches it here
+					
 					int id = Integer.parseInt(idInput.trim());
 					int views = Integer.parseInt(viewsInput.trim());
+					
 					
 					Video video = new Video(id, title, views, selected);
 					selected.addVideos(video);
@@ -438,12 +455,18 @@ public class CreatorsManagerGUI extends JFrame implements ActionListener {
 					timer.setRepeats(false);
 					timer.start();
 					
-				} catch(NumberFormatException | NullPointerException | InvalidCreatorDataException ex) {
+				} catch(NumberFormatException  ex) {
 					statusLabel.setText("Video ID and views must be whole numbers!");
 					
 				Timer timer = new Timer(3000, event -> statusLabel.setText(" "));
 				timer.setRepeats(false);
 				timer.start();
+				} catch (InvalidCreatorDataException ex) {
+					statusLabel.setText(ex.getMessage());
+					
+					Timer timer = new Timer(3000, event -> statusLabel.setText(" "));
+					timer.setRepeats(false);
+					timer.start();
 				}
 			}
 		
@@ -457,7 +480,7 @@ public class CreatorsManagerGUI extends JFrame implements ActionListener {
 					
 					String subscribersInput = JOptionPane.showInputDialog(this, "Edit Subscriber Count:", selected.getSubscribers());
 					
-					if(name == null || subscribersInput == null) {
+					if(name == null || subscribersInput == null ) { //The subscriber input stops the statusLabel from catching it since it already does.
 						return;
 					}
 					int subscribers = Integer.parseInt(subscribersInput);
