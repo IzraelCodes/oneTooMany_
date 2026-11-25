@@ -32,7 +32,10 @@ public class Creators implements Serializable {
 	public int getSubscribers() {
 		return Subscribers;
 	}
-	public void setSubscribers(int Subscribers) {
+	public void setSubscribers(int Subscribers) throws InvalidCreatorDataException{
+		if(Subscribers < 0) {
+			throw new InvalidCreatorDataException("Subscriber count can't be negative");
+		}
 		this.Subscribers = Subscribers;
 	}
 	public ArrayList<Video> getVideos(){

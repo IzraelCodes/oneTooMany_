@@ -28,7 +28,10 @@ public class Video implements Serializable{
 	public int getViews() {
 		return views;
 	}
-	public void setViews(int views) {
+	public void setViews(int views)throws InvalidCreatorDataException {
+		if(views < 0) {
+			throw new InvalidCreatorDataException("Can't have negative View count");
+		}
 		this.views = views;
 	}
 	

@@ -485,12 +485,13 @@ public class CreatorsManagerGUI extends JFrame implements ActionListener {
 					}
 					int subscribers = Integer.parseInt(subscribersInput);
 					
-					if(name.isEmpty() || subscribers < 0) { //this line
-						statusLabel.setText("Invalid creator details.");
+					if(name.isEmpty()) { 
+						statusLabel.setText("Invalid creator details, name can't be empty.");
 						return;
 					}
-					selected.setName(name);
 					selected.setSubscribers(subscribers);
+					selected.setName(name);
+					
 					
 					refreshCreatorList();
 					creatorListDisplay.setSelectedValue(selected, true);
@@ -505,6 +506,12 @@ public class CreatorsManagerGUI extends JFrame implements ActionListener {
 					timer.start();
 				} catch (NumberFormatException  ex) {
 					statusLabel.setText("Enter a valid subscriber count.");
+					
+					Timer timer = new Timer(3000, event -> statusLabel.setText(" "));
+					timer.setRepeats(false);
+					timer.start();
+				} catch(InvalidCreatorDataException ex ) {
+					statusLabel.setText(ex.getMessage());
 					
 					Timer timer = new Timer(3000, event -> statusLabel.setText(" "));
 					timer.setRepeats(false);
@@ -526,13 +533,13 @@ public class CreatorsManagerGUI extends JFrame implements ActionListener {
 					}
 					int views = Integer.parseInt(viewsInput);
 					
-					if(title.isEmpty() || views < 0) {
-						statusLabel.setText("Invalid video details");
+					if(title.isEmpty()) {
+						statusLabel.setText("Invalid video details. Title can't be empty");
 						return;
 					}
-					
-					selected.setVideoTitle(title);
 					selected.setViews(views);
+					selected.setVideoTitle(title);
+					
 					
 					showVideos(selected.getCreator());
 					videoListDisplay.setSelectedValue(selected, true);
@@ -547,6 +554,13 @@ public class CreatorsManagerGUI extends JFrame implements ActionListener {
 					
 				} catch(NumberFormatException ex) {
 					statusLabel.setText("Enter a valid view count.");
+					
+					Timer timer = new Timer(3000, event -> statusLabel.setText(" "));
+					timer.setRepeats(false);
+					timer.start();
+				} catch (InvalidCreatorDataException ex) {
+					statusLabel.setText(ex.getMessage());
+					
 					Timer timer = new Timer(3000, event -> statusLabel.setText(" "));
 					timer.setRepeats(false);
 					timer.start();
