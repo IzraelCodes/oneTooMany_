@@ -40,7 +40,7 @@ public class CreatorsManagerGUI extends JFrame implements ActionListener {
 		// background time
 		getContentPane().setBackground(new Color(240, 243, 248));
 		
-		//All panels here!
+		// All panels here!
 		
 		JPanel headerPanel = createHeader();
 		JPanel statsPanel = createStats();
@@ -76,7 +76,7 @@ public class CreatorsManagerGUI extends JFrame implements ActionListener {
 		
 		setVisible(true);
 		
-	} //dashboard header part
+	} // dashboard header part
 	
 	private JPanel createHeader() {
 		
@@ -173,7 +173,6 @@ public class CreatorsManagerGUI extends JFrame implements ActionListener {
 		videoListDisplay.setFont(new Font("Arial", Font.PLAIN, 14));
 		
 		JScrollPane scrollPane = new JScrollPane(videoListDisplay);
-		//SetBorder empty Gets rid of them horrible lines around the scroll pane dont know if i can change the scroll wheel icon doe.
 		scrollPane.setBorder(BorderFactory.createEmptyBorder());
 		
 		panel.add(heading, BorderLayout.NORTH);
@@ -298,14 +297,8 @@ public class CreatorsManagerGUI extends JFrame implements ActionListener {
 		creatorCountLabel.setText(String.valueOf(creatorList.size()));
 		videoCountLabel.setText(String.valueOf(totalVideos));
 	}
-	private void sampleData() { //Place HOLDER for now
-		//Three creators need to be made
+	private void sampleData() { 
 		
-		// Create 1-2 Videos per creator
-		
-		//Linked to respective creator
-		
-		//save sample data
 	}
 	
 	//Load creator from files
@@ -396,6 +389,7 @@ public class CreatorsManagerGUI extends JFrame implements ActionListener {
 					
 				} catch(NumberFormatException | NullPointerException ex) {
 					statusLabel.setText("Video ID and views must be whole numbers!");
+					
 				Timer timer = new Timer(3000, event -> statusLabel.setText(" "));
 				timer.setRepeats(false);
 				timer.start();
@@ -437,6 +431,10 @@ public class CreatorsManagerGUI extends JFrame implements ActionListener {
 					timer.start();
 				} catch (NumberFormatException ex) {
 					statusLabel.setText("Enter a valid subscriber count.");
+					
+					Timer timer = new Timer(3000, event -> statusLabel.setText(" "));
+					timer.setRepeats(false);
+					timer.start();
 				}
 			}
 			
@@ -469,10 +467,15 @@ public class CreatorsManagerGUI extends JFrame implements ActionListener {
 					
 					statusLabel.setText("Video has been Editted successfully");
 					
-					//timer
+					Timer timer = new Timer(3000, event -> statusLabel.setText(" "));
+					timer.setRepeats(false);
+					timer.start();
+					
 				} catch(NumberFormatException ex) {
 					statusLabel.setText("Enter a valid view count.");
-					//timer
+					Timer timer = new Timer(3000, event -> statusLabel.setText(" "));
+					timer.setRepeats(false);
+					timer.start();
 				}
 			}
 			
@@ -497,8 +500,10 @@ public class CreatorsManagerGUI extends JFrame implements ActionListener {
 					saveCreators();
 					
 					statusLabel.setText("Creator deleted successfully");
+					Timer timer = new Timer(3000, event -> statusLabel.setText(" "));
+					timer.setRepeats(false);
+					timer.start();
 					
-					//TIMER here LATER running out of time
 				}
 			}
 		} else if(e.getSource() == deleteVideoButton) {
@@ -523,7 +528,9 @@ public class CreatorsManagerGUI extends JFrame implements ActionListener {
 					saveCreators();
 					
 					statusLabel.setText("Video Deleted successfully");
-					// Timer
+					Timer timer = new Timer(3000, event -> statusLabel.setText(" "));
+					timer.setRepeats(false);
+					timer.start();
 					
 				} else {
 					statusLabel.setText("Select a video first ");
