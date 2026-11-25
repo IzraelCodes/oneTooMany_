@@ -382,6 +382,14 @@ public class CreatorsManagerGUI extends JFrame implements ActionListener {
 	        } catch (IOException ex) {
 	            ex.printStackTrace();
 	        }
+		  
+	}
+	private void showStatus(String message) {
+		statusLabel.setText(message);
+		
+		Timer timer = new Timer(3000, event -> statusLabel.setText(" "));
+		timer.setRepeats(false);
+		timer.start(); //This should get rid of all the repeated code for the Timer my gosh
 	}
 	@Override
 	//Button features and stuff
@@ -406,24 +414,15 @@ public class CreatorsManagerGUI extends JFrame implements ActionListener {
 				refreshStats();
 				saveCreators();
 				
-				statusLabel.setText("Creator added successfully.");
-				Timer timer = new Timer(3000, event -> statusLabel.setText(" "));
-				timer.setRepeats(false);
-				timer.start();
+				showStatus("Creator added successfully.");
 				
 			}catch (NumberFormatException ex) {
-				statusLabel.setText("Creator ID must be a whole number.");
+				showStatus("Creator ID must be a whole number.");
 				
-				Timer timer = new Timer(3000, event -> statusLabel.setText(" "));
-				timer.setRepeats(false);
-				timer.start();
 				
 			} catch (InvalidCreatorDataException ex ) {
-				statusLabel.setText(ex.getMessage());
+				showStatus(ex.getMessage());
 				
-				Timer timer = new Timer(3000, event -> statusLabel.setText(" "));
-				timer.setRepeats(false);
-				timer.start();
 			}
 		} else if (e.getSource()== addVideoButton) {
 			Creators selected = creatorListDisplay.getSelectedValue();
@@ -449,24 +448,15 @@ public class CreatorsManagerGUI extends JFrame implements ActionListener {
 					showVideos(selected);
 					refreshStats();
 					saveCreators();
-					statusLabel.setText("Video added successfully.");
+					showStatus("Video added successfully.");
 					
-					Timer timer = new Timer(3000, event -> statusLabel.setText(" "));
-					timer.setRepeats(false);
-					timer.start();
 					
 				} catch(NumberFormatException  ex) {
-					statusLabel.setText("Video ID and views must be whole numbers!");
+					showStatus("Video ID and views must be whole numbers!");
 					
-				Timer timer = new Timer(3000, event -> statusLabel.setText(" "));
-				timer.setRepeats(false);
-				timer.start();
 				} catch (InvalidCreatorDataException ex) {
-					statusLabel.setText(ex.getMessage());
-					
-					Timer timer = new Timer(3000, event -> statusLabel.setText(" "));
-					timer.setRepeats(false);
-					timer.start();
+					showStatus(ex.getMessage());
+		
 				}
 			}
 		
@@ -499,23 +489,14 @@ public class CreatorsManagerGUI extends JFrame implements ActionListener {
 					refreshStats();
 					saveCreators();
 					
-					statusLabel.setText("Creator edited successfully.");
-					
-					Timer timer = new Timer(3000, event -> statusLabel.setText(" "));
-					timer.setRepeats(false);
-					timer.start();
+					showStatus("Creator edited successfully.");
+				
 				} catch (NumberFormatException  ex) {
-					statusLabel.setText("Enter a valid subscriber count.");
+					showStatus("Enter a valid subscriber count.");
 					
-					Timer timer = new Timer(3000, event -> statusLabel.setText(" "));
-					timer.setRepeats(false);
-					timer.start();
 				} catch(InvalidCreatorDataException ex ) {
-					statusLabel.setText(ex.getMessage());
+					showStatus(ex.getMessage());
 					
-					Timer timer = new Timer(3000, event -> statusLabel.setText(" "));
-					timer.setRepeats(false);
-					timer.start();
 				}
 			}
 			
@@ -546,24 +527,14 @@ public class CreatorsManagerGUI extends JFrame implements ActionListener {
 					refreshStats();
 					saveCreators();
 					
-					statusLabel.setText("Video has been Editted successfully");
-					
-					Timer timer = new Timer(3000, event -> statusLabel.setText(" "));
-					timer.setRepeats(false);
-					timer.start();
+					showStatus("Video has been Editted successfully");
 					
 				} catch(NumberFormatException ex) {
-					statusLabel.setText("Enter a valid view count.");
+					showStatus("Enter a valid view count.");
 					
-					Timer timer = new Timer(3000, event -> statusLabel.setText(" "));
-					timer.setRepeats(false);
-					timer.start();
 				} catch (InvalidCreatorDataException ex) {
-					statusLabel.setText(ex.getMessage());
+					showStatus(ex.getMessage());
 					
-					Timer timer = new Timer(3000, event -> statusLabel.setText(" "));
-					timer.setRepeats(false);
-					timer.start();
 				}
 			}
 			
@@ -587,10 +558,7 @@ public class CreatorsManagerGUI extends JFrame implements ActionListener {
 					refreshStats();
 					saveCreators();
 					
-					statusLabel.setText("Creator deleted successfully");
-					Timer timer = new Timer(3000, event -> statusLabel.setText(" "));
-					timer.setRepeats(false);
-					timer.start();
+					showStatus("Creator deleted successfully");
 					
 				}
 			}
@@ -615,10 +583,7 @@ public class CreatorsManagerGUI extends JFrame implements ActionListener {
 					refreshStats();
 					saveCreators();
 					
-					statusLabel.setText("Video Deleted successfully");
-					Timer timer = new Timer(3000, event -> statusLabel.setText(" "));
-					timer.setRepeats(false);
-					timer.start();
+					showStatus("Video Deleted successfully");
 					
 				} 
 			} else {
@@ -635,9 +600,9 @@ public class CreatorsManagerGUI extends JFrame implements ActionListener {
 // TODO CHART WHICH IS AVG VIEW PER VIDEO OF EACH CREATOR
 // Average views = Total video views / number of videos
 
-//Custom Exception
+//Custom Exception 90%
 
 //Maybe work on some more GUI related stuff
 
-//EDIT and DELETE /50%
+
 
