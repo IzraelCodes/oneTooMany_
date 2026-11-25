@@ -620,9 +620,9 @@ public class CreatorsManagerGUI extends JFrame implements ActionListener {
 					timer.setRepeats(false);
 					timer.start();
 					
-				} else {
-					statusLabel.setText("Select a video first ");
-				}
+				} 
+			} else {
+				statusLabel.setText("Select a video first ");
 			}
 		}
 		
