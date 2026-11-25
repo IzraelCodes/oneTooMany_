@@ -6,7 +6,11 @@ public class Video implements Serializable{
 	private int views;
 	private Creators creator;
 	
-	public Video(int videoId, String videoTitle, int views, Creators creator) {
+	public Video(int videoId, String videoTitle, int views, Creators creator) throws InvalidCreatorDataException {
+		
+		if(views < 0) {
+			throw new InvalidCreatorDataException("Views cant be a negative number");
+		}
 		this.videoId = videoId;
 		this.videoTitle = videoTitle;
 		this.views = views;

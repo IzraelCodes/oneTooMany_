@@ -8,7 +8,11 @@ public class Creators implements Serializable {
 	private int Subscribers;
 	private ArrayList<Video> videos;
 	
-	public Creators(int creatorId, String name, int Subscribers) {
+	public Creators(int creatorId, String name, int Subscribers) throws InvalidCreatorDataException {
+		
+		if(Subscribers < 0) {
+			throw new InvalidCreatorDataException("Subscriber count cannot be negative.");
+		}
 		this.creatorId = creatorId;
 		this.name=name;
 		this.Subscribers = Subscribers;

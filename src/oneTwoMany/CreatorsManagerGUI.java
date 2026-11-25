@@ -298,7 +298,7 @@ public class CreatorsManagerGUI extends JFrame implements ActionListener {
 		videoCountLabel.setText(String.valueOf(totalVideos));
 	}
 	private void sampleData() { 
-		
+		try {
 		Creators c1 = new Creators(0001,"MrBeast", 528_479_835);
 		Creators c2 = new Creators(0002,"IShowspeed", 63_386_487);
 		Creators c3 = new Creators(0003, "Beta Squad", 12_230_104);
@@ -342,6 +342,10 @@ public class CreatorsManagerGUI extends JFrame implements ActionListener {
 		refreshCreatorList();
 		refreshStats();
 		saveCreators();
+		
+		}catch (InvalidCreatorDataException ex) {
+			statusLabel.setText(" ");
+		}
 	}
 	
 	
@@ -403,7 +407,7 @@ public class CreatorsManagerGUI extends JFrame implements ActionListener {
 				timer.setRepeats(false);
 				timer.start();
 				
-			}catch (NumberFormatException | NullPointerException ex) {
+			}catch (NumberFormatException | NullPointerException | InvalidCreatorDataException ex) {
 				statusLabel.setText("Creator ID must be a whole number.");
 				Timer timer = new Timer(3000, event -> statusLabel.setText(" "));
 				timer.setRepeats(false);
@@ -434,7 +438,7 @@ public class CreatorsManagerGUI extends JFrame implements ActionListener {
 					timer.setRepeats(false);
 					timer.start();
 					
-				} catch(NumberFormatException | NullPointerException ex) {
+				} catch(NumberFormatException | NullPointerException | InvalidCreatorDataException ex) {
 					statusLabel.setText("Video ID and views must be whole numbers!");
 					
 				Timer timer = new Timer(3000, event -> statusLabel.setText(" "));
@@ -476,7 +480,7 @@ public class CreatorsManagerGUI extends JFrame implements ActionListener {
 					Timer timer = new Timer(3000, event -> statusLabel.setText(" "));
 					timer.setRepeats(false);
 					timer.start();
-				} catch (NumberFormatException ex) {
+				} catch (NumberFormatException  ex) {
 					statusLabel.setText("Enter a valid subscriber count.");
 					
 					Timer timer = new Timer(3000, event -> statusLabel.setText(" "));
