@@ -480,12 +480,12 @@ public class CreatorsManagerGUI extends JFrame implements ActionListener {
 					
 					String subscribersInput = JOptionPane.showInputDialog(this, "Edit Subscriber Count:", selected.getSubscribers());
 					
-					if(name == null || subscribersInput == null ) { //The subscriber input stops the statusLabel from catching it since it already does.
+					if(name == null || subscribersInput == null ) {  
 						return;
 					}
 					int subscribers = Integer.parseInt(subscribersInput);
 					
-					if(name.isEmpty() || subscribers < 0) {
+					if(name.isEmpty() || subscribers < 0) { //this line
 						statusLabel.setText("Invalid creator details.");
 						return;
 					}
