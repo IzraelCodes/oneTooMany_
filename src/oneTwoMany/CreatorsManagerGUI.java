@@ -65,7 +65,7 @@ public class CreatorsManagerGUI extends JFrame implements ActionListener {
 		//Center section of the UI
 		
 		JPanel centerPanel = new JPanel(new GridLayout(1,2,15,15));
-		centerPanel.setBackground(new Color(240,243,248));
+		centerPanel.setBackground(new Color(244,244,244));
 		centerPanel.setBorder(BorderFactory.createEmptyBorder(10,15,10,15));
 		
 		centerPanel.add(creatorPanel);
@@ -99,7 +99,7 @@ public class CreatorsManagerGUI extends JFrame implements ActionListener {
 	private JPanel createHeader() {
 		
 		JPanel panel = new RoundedPanel(25, new BorderLayout());
-		panel.setBackground(new Color(32,43,60));
+		panel.setBackground(new Color(24,24,24));
 		panel.setBorder(BorderFactory.createEmptyBorder(20, 25, 20,25));
 		
 		JLabel titleLabel = new JLabel("CreatorHub");
@@ -114,7 +114,7 @@ public class CreatorsManagerGUI extends JFrame implements ActionListener {
 		subtitleLabel.setForeground(Color.LIGHT_GRAY);
 		
 		JPanel textPanel = new JPanel(new GridLayout(2, 1));
-		textPanel.setBackground(new Color(32, 43, 60));
+		textPanel.setBackground(new Color(24, 24, 24));
 		
 		textPanel.add(titleLabel);
 		textPanel.add(subtitleLabel);
@@ -131,7 +131,7 @@ public class CreatorsManagerGUI extends JFrame implements ActionListener {
 		
 		JPanel panel = new JPanel(new GridLayout(1,2,15,0));
 		
-		panel.setBackground(new Color(240,243,248));
+		panel.setBackground(new Color(244,244,244));
 		panel.setBorder(BorderFactory.createEmptyBorder(15,15,5,15));
 		
 		creatorCountLabel = new JLabel("0");
@@ -164,7 +164,7 @@ public class CreatorsManagerGUI extends JFrame implements ActionListener {
 	        headingLabel.setForeground(Color.GRAY);
 
 	        numberLabel.setFont(new Font("Arial", Font.BOLD, 25));
-	        numberLabel.setForeground(new Color(32, 43, 60));
+	        numberLabel.setForeground(new Color(24, 24, 24));
 
 	        panel.add(headingLabel);
 	        panel.add(numberLabel);
@@ -246,7 +246,7 @@ public class CreatorsManagerGUI extends JFrame implements ActionListener {
 		buttonPanel.setOpaque(false);
 
 		
-		buttonPanel.setBackground(new Color(240,243,248));
+		buttonPanel.setBackground(new Color(244,244,244));
 		
 		Color addColor = new Color(255,0,0);
 		Color editColor = new Color(39,39,39);
@@ -297,7 +297,7 @@ public class CreatorsManagerGUI extends JFrame implements ActionListener {
 	}
 	private JPanel createAnalyticsPanel() {
 		JPanel panel = new JPanel(new BorderLayout(15,15));
-		panel.setBackground(new Color(241,245,249));
+		panel.setBackground(new Color(244,244,244));
 		panel.setBorder(BorderFactory.createEmptyBorder(15,15,15,15));
 		
 		// Labels

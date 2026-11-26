@@ -91,7 +91,7 @@ public class CreatorChartPanel extends JPanel {
 			
 			// actual bar
 			
-			g2.setColor(new Color(37,99,235));
+			g2.setColor(new Color(255,0,0));
 			g2.fillRoundRect(startX, startY+10, barWidth, barHeight, 12, 12);
 			
 			startY += spacing;
