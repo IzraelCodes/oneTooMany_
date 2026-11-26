@@ -71,10 +71,20 @@ public class CreatorsManagerGUI extends JFrame implements ActionListener {
 		centerPanel.add(creatorPanel);
 		centerPanel.add(videoPanel);
 		
+		//Manager panel (tabbed pane)
+		JPanel managerPanel = new JPanel(new BorderLayout(15,15));
+		managerPanel.add(statsPanel, BorderLayout.NORTH);
+		managerPanel.add(centerPanel, BorderLayout.CENTER);
+		managerPanel.add(footerPanel, BorderLayout.SOUTH);
 		
-		add(topPanel, BorderLayout.NORTH);
-		add(centerPanel, BorderLayout.CENTER);
-		add(footerPanel, BorderLayout.SOUTH);
+		//Tabbed pane
+		tabbedPane = new JTabbedPane();
+		tabbedPane.setFont(new Font("Arial", Font.BOLD,14));
+		tabbedPane.addTab("Creator Manager", managerPanel);
+		tabbedPane.addTab("Analytics", createAnalyticsPanel());
+		
+		add(headerPanel, BorderLayout.NORTH);
+		add(tabbedPane, BorderLayout.CENTER);
 		
 		
 		loadCreators();
@@ -301,7 +311,7 @@ public class CreatorsManagerGUI extends JFrame implements ActionListener {
 		// Chartpanel time
 		chartPanel = new CreatorChartPanel(creatorList);
 		JScrollPane scrollPane = new JScrollPane(chartPanel);
-		// Just wanna wait and see If i need to get rid of the borders from the scroll pane||
+		scrollPane.setBorder(BorderFactory.createEmptyBorder());
 		scrollPane.getVerticalScrollBar().setUnitIncrement(16);
 		
 		panel.add(statsPanel, BorderLayout.NORTH);
@@ -346,13 +356,15 @@ public class CreatorsManagerGUI extends JFrame implements ActionListener {
 	private void refreshStats() {
 		
 		int totalVideos = 0;
-		
+	 
 		for(Creators creator : creatorList) {
 			totalVideos += creator.getVideos().size();
 		}
 		
 		creatorCountLabel.setText(String.valueOf(creatorList.size()));
 		videoCountLabel.setText(String.valueOf(totalVideos));
+		if(chartPanel != null) {refreshAnalytics();}
+		
 	}
 	private void sampleData() { 
 		try {
