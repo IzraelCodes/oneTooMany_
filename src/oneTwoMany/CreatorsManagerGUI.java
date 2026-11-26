@@ -256,9 +256,9 @@ public class CreatorsManagerGUI extends JFrame implements ActionListener {
 		editCreatorButton = new RoundedButton("Edit Creator",editColor);
 		deleteCreatorButton = new RoundedButton("Delete Creator",deleteColor);
 		
-		addVideoButton = new JButton("Add Video");
-		editVideoButton = new JButton("Edit Video");
-		deleteVideoButton = new JButton("Delete Video");
+		addVideoButton = new RoundedButton("Add Video",addColor);
+		editVideoButton = new RoundedButton("Edit Video",editColor);
+		deleteVideoButton = new RoundedButton("Delete Video",deleteColor);
 		
 		addCreatorButton.addActionListener(this);
 		addVideoButton.addActionListener(this);
