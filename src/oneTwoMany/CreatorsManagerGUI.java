@@ -281,7 +281,35 @@ public class CreatorsManagerGUI extends JFrame implements ActionListener {
 		return panel;
 		
 	}
-	
+	private JPanel createAnalyticsPanel() {
+		JPanel panel = new JPanel(new BorderLayout(15,15));
+		panel.setBackground(new Color(241,245,249));
+		panel.setBorder(BorderFactory.createEmptyBorder(15,15,15,15));
+		
+		// Labels
+		totalViewsLabel = new JLabel("0");
+		totalSubscribersLabel = new JLabel("0");
+		averageViewsLabel = new JLabel("0");
+		
+		//stats panel
+		JPanel statsPanel = new JPanel(new GridLayout(1,3,15,0));
+		statsPanel.setOpaque(false);
+		statsPanel.add(createStatCard("Total Views", totalViewsLabel));
+		statsPanel.add(createStatCard("Total Subscribers", totalSubscribersLabel));
+		statsPanel.add(createStatCard("Average Video Views", averageViewsLabel));
+		
+		// Chartpanel time
+		chartPanel = new CreatorChartPanel(creatorList);
+		JScrollPane scrollPane = new JScrollPane(chartPanel);
+		// Just wanna wait and see If i need to get rid of the borders from the scroll pane||
+		scrollPane.getVerticalScrollBar().setUnitIncrement(16);
+		
+		panel.add(statsPanel, BorderLayout.NORTH);
+		panel.add(scrollPane, BorderLayout.CENTER);
+		return panel;
+
+		
+	}
 	//Refresh Creator list
 	
 	private void refreshCreatorList() {
