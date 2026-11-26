@@ -310,6 +310,27 @@ public class CreatorsManagerGUI extends JFrame implements ActionListener {
 
 		
 	}
+	//calculates the stats across all creators
+	private  void refreshAnalytics() {
+		long totalViews = 0;
+		long totalSubscribers = 0;
+		int totalVideos = 0;
+		
+		for(Creators creator: creatorList) {
+			totalSubscribers += creator.getSubscribers();
+			totalViews += creator.getTotalViews();
+			totalVideos += creator.getVideos().size();
+		}
+		double averageViews = 0;
+		if(totalViews > 0) {
+			averageViews = (double) totalViews / totalVideos;
+		}
+		totalViewsLabel.setText(NumberFormatter.formatNumber(totalViews));
+		totalSubscribersLabel.setText(NumberFormatter.formatNumber(totalSubscribers));
+		averageViewsLabel.setText(NumberFormatter.formatNumber(averageViews));
+		
+		chartPanel.setCreatorList(creatorList);
+	}
 	//Refresh Creator list
 	
 	private void refreshCreatorList() {
