@@ -248,9 +248,13 @@ public class CreatorsManagerGUI extends JFrame implements ActionListener {
 		
 		buttonPanel.setBackground(new Color(240,243,248));
 		
-		addCreatorButton = new JButton("Add Creator");
-		editCreatorButton = new JButton("Edit Creator");
-		deleteCreatorButton = new JButton("Delete Creator");
+		Color addColor = new Color(255,0,0);
+		Color editColor = new Color(39,39,39);
+		Color deleteColor = new Color(153,27,27);
+		
+		addCreatorButton = new RoundedButton("Add Creator",addColor);
+		editCreatorButton = new RoundedButton("Edit Creator",editColor);
+		deleteCreatorButton = new RoundedButton("Delete Creator",deleteColor);
 		
 		addVideoButton = new JButton("Add Video");
 		editVideoButton = new JButton("Edit Video");
