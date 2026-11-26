@@ -616,6 +616,8 @@ public class CreatorsManagerGUI extends JFrame implements ActionListener {
 					showStatus(ex.getMessage());
 					
 				}
+			} else {
+				showStatus("Select a video");
 			}
 			
 		} else if(e.getSource() == deleteCreatorButton) {
@@ -677,10 +679,3 @@ public class CreatorsManagerGUI extends JFrame implements ActionListener {
 	
 	}
 }
-
-//Maybe work on some more GUI related stuff
-
-
-
-
-

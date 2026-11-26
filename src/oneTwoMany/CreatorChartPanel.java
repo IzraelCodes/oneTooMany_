@@ -33,7 +33,7 @@ public class CreatorChartPanel extends JPanel {
 		g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING,RenderingHints.VALUE_ANTIALIAS_ON); //GOOGLE
 		
 		g2.setColor(new Color(30,41,59));
-		g2.setFont(new Font("Ariel", Font.BOLD, 20));
+		g2.setFont(new Font("Arial", Font.BOLD, 20));
 		g2.drawString("Average Views per Creator",25,35);
 		
 		// Check the creator list if its empty
