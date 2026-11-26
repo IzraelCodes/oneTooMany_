@@ -32,7 +32,7 @@ public class CreatorChartPanel extends JPanel {
 		
 		g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING,RenderingHints.VALUE_ANTIALIAS_ON); //GOOGLE
 		
-		g2.setColor(new Color(30,41,59));
+		g2.setColor(new Color(24,24,24));
 		g2.setFont(new Font("Arial", Font.BOLD, 20));
 		g2.drawString("Average Views per Creator",25,35);
 		
@@ -73,8 +73,8 @@ public class CreatorChartPanel extends JPanel {
 			}
 			
 			//Creators names
-			g2.setFont(new Font("Segue UI", Font.BOLD,14));
-			g2.setColor(new Color(30,41,59));
+			g2.setFont(new Font("Segoe UI", Font.BOLD,14));
+			g2.setColor(new Color(24,24,24));
 			g2.drawString(creator.getName(), startX, startY);
 			
 			//Avg View Label

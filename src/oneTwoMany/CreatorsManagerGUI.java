@@ -73,6 +73,7 @@ public class CreatorsManagerGUI extends JFrame implements ActionListener {
 		
 		//Manager panel (tabbed pane)
 		JPanel managerPanel = new JPanel(new BorderLayout(15,15));
+		managerPanel.setBackground(new Color(244,244,244));
 		managerPanel.add(statsPanel, BorderLayout.NORTH);
 		managerPanel.add(centerPanel, BorderLayout.CENTER);
 		managerPanel.add(footerPanel, BorderLayout.SOUTH);
@@ -508,7 +509,7 @@ public class CreatorsManagerGUI extends JFrame implements ActionListener {
 			Creators selected = creatorListDisplay.getSelectedValue();
 			
 			if (selected == null) {
-				statusLabel.setText("Select a creator first please");
+				showStatus("Select a creator first please");
 			}else {
 				try {
 					String idInput = JOptionPane.showInputDialog(this,"Enter Video ID:");
@@ -578,6 +579,8 @@ public class CreatorsManagerGUI extends JFrame implements ActionListener {
 					showStatus(ex.getMessage());
 					
 				}
+			} else {
+				showStatus("Please select a Creator");
 			}
 			
 		} else if(e.getSource() == editVideoButton) {
@@ -617,7 +620,7 @@ public class CreatorsManagerGUI extends JFrame implements ActionListener {
 					
 				}
 			} else {
-				showStatus("Select a video");
+				showStatus("Please select a video");
 			}
 			
 		} else if(e.getSource() == deleteCreatorButton) {
@@ -643,6 +646,8 @@ public class CreatorsManagerGUI extends JFrame implements ActionListener {
 					showStatus("Creator deleted successfully");
 					
 				}
+			} else {
+				showStatus("Please select a Creator");
 			}
 		} else if(e.getSource() == deleteVideoButton) {
 			
@@ -669,7 +674,7 @@ public class CreatorsManagerGUI extends JFrame implements ActionListener {
 					
 				} 
 			} else {
-				statusLabel.setText("Select a video first ");
+				showStatus("Please select a video first ");
 			}
 		}
 		
