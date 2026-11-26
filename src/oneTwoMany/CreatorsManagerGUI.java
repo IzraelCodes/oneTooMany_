@@ -26,6 +26,14 @@ public class CreatorsManagerGUI extends JFrame implements ActionListener {
 	private JLabel videoCountLabel;
 	private JLabel statusLabel;
 	
+	//Chart stuff + tab
+	private JLabel totalViewsLabel;
+	private JLabel totalSubscribersLabel;
+	private JLabel averageViewsLabel;
+	
+	private CreatorChartPanel chartPanel;
+	private JTabbedPane tabbedPane;
+	
 	private ArrayList<Creators> creatorList;
 	
 	public CreatorsManagerGUI() {

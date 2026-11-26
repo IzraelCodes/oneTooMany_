@@ -67,6 +67,7 @@ public class Creators implements Serializable {
 	
 	@Override
 	public String toString() {
+		
 		return "<html>" +
 		           "<b>" + name + "</b><br>" +
 		           "<font color='gray'>Creator ID: " + creatorId + "</font><br>" +
