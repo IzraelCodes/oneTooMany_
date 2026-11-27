@@ -69,7 +69,7 @@ public class CreatorsManagerGUI extends JFrame implements ActionListener {
 		centerPanel.setBorder(BorderFactory.createEmptyBorder(10,15,10,15));
 		
 		centerPanel.add(creatorPanel);
-		centerPanel.add(videoPanel);
+		centerPanel.add(videoPanel); 
 		
 		//Manager panel (tabbed pane)
 		JPanel managerPanel = new JPanel(new BorderLayout(15,15));
