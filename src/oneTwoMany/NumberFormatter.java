@@ -1,3 +1,9 @@
+/**
+ *class used to format large numerical values
+ * into readable abbreviated representations.
+ * Formats a numerical value using K, M or B suffixes
+ * to represent thousands, millions or billions.
+ */
 package oneTwoMany;
 
 public class NumberFormatter {

@@ -1,3 +1,7 @@
+/**
+ * Simple video test Implemented early into the development of the project
+ * 
+ */
 package oneTwoMany;
 
 public class VideoTest {

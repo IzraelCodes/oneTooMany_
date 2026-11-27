@@ -1,3 +1,12 @@
+/**
+ * Extends JPanel to provide a reusable panel
+ * with rounded corners and anti-aliased rendering.
+ * Youtube tutorials..
+ * 
+ * The constructor constructs a rounded panel with the specified
+ * corner curvature and layout manager
+ * paint component renders the background color
+ */
 package oneTwoMany;
 import java.awt.*;
 import javax.swing.*;

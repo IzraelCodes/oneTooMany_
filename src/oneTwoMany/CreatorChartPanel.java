@@ -1,3 +1,10 @@
+/**
+ * Displays a custom horizontal bar chart comparing
+ * the average video views of each creator.
+ * 
+ * Uses Graphics2D like all the other charts and its
+ * based on the highest average view count in the data set.
+ */
 package oneTwoMany;
 import java.awt.*;
 import java.util.ArrayList;
@@ -13,6 +20,12 @@ public class CreatorChartPanel extends JPanel {
 		
 		setPreferredSize(new Dimension(700,350));
 	}
+	/**
+	 * Updates the creator data used by the chart and
+	 * requests the panel to be resized and repainted.
+	 *
+	 * @param creatorList the updated collection of creators
+	 */
 	public void setCreatorList(ArrayList<Creators> creatorList) {
 		this.creatorList = creatorList;
 		

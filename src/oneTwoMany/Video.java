@@ -1,3 +1,12 @@
+/**
+ * Represents a YouTube video belonging to a specific creator.
+ *
+ * Stores the video's ID, title, view count and a reference
+ * to its associated creator.
+ *
+ * Supports serialization to allow video data to be saved
+ * and restored.
+ */
 package oneTwoMany;
 import java.io.*;
 public class Video implements Serializable{
@@ -5,6 +14,14 @@ public class Video implements Serializable{
 	private String videoTitle;
 	private int views;
 	private Creators creator;
+	
+	/**
+	 * Updates the number of views recorded for this video.
+	 *
+	 * @param views the updated view count
+	 * @throws InvalidCreatorDataException if the view count
+	 *         is negative
+	 */
 	
 	public Video(int videoId, String videoTitle, int views, Creators creator) throws InvalidCreatorDataException {
 		

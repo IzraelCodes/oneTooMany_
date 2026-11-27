@@ -1,3 +1,11 @@
+/**
+ * Extends JButton to provide rounded buttons
+ * with custom colours and interactive hover
+ * and pressed states.
+ * Youtube tutorial helped
+ * Constructor constructs a styled button with a specified
+ * label and background colour.
+ */
 package oneTwoMany;
 
 import javax.swing.BorderFactory;
